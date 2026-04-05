@@ -1,0 +1,25 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+
+# Databases & Persistence
+backend/mindbridge.db
+backend/chroma_db/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+*.log

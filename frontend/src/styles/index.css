@@ -1,0 +1,276 @@
+/* ═══════════════════════════════════════════════════════
+   MindBridge — Design System
+   A calming, therapeutic visual language
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Reset ────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ─── CSS Custom Properties ────────────────────────── */
+:root {
+  /* Colors — Light Mode (default) */
+  --clr-primary: #4A6FA5;
+  --clr-primary-light: #6B8EC2;
+  --clr-primary-dark: #34537D;
+  --clr-secondary: #6B9080;
+  --clr-secondary-light: #8AB4A4;
+  --clr-secondary-dark: #4D6E60;
+  --clr-accent: #E8C07D;
+  --clr-accent-light: #F2D9A8;
+  --clr-accent-dark: #C99A4A;
+
+  --clr-bg: #F7F5F0;
+  --clr-bg-alt: #EFEDE7;
+  --clr-bg-card: #FFFFFF;
+  --clr-bg-input: #F0EDE6;
+  --clr-bg-hover: #E8E5DD;
+
+  --clr-text: #2D3142;
+  --clr-text-secondary: #5C607A;
+  --clr-text-muted: #9295A5;
+  --clr-text-inverse: #F7F5F0;
+
+  --clr-border: #D8D5CC;
+  --clr-border-light: #E8E5DD;
+
+  --clr-crisis: #D64045;
+  --clr-crisis-bg: #FDF0F0;
+  --clr-success: #4CAF50;
+  --clr-warning: #E8A838;
+
+  /* Sidebar */
+  --clr-sidebar-bg: #2D3142;
+  --clr-sidebar-text: #C8CAD4;
+  --clr-sidebar-hover: #3D4156;
+  --clr-sidebar-active: #4A6FA5;
+
+  /* Message bubbles */
+  --clr-msg-user: #4A6FA5;
+  --clr-msg-user-text: #FFFFFF;
+  --clr-msg-bot: #FFFFFF;
+  --clr-msg-bot-text: #2D3142;
+  --clr-msg-bot-border: #E8E5DD;
+
+  /* Typography */
+  --ff-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ff-heading: 'Outfit', 'Inter', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(45, 49, 66, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 49, 66, 0.08);
+  --shadow-lg: 0 8px 30px rgba(45, 49, 66, 0.1);
+  --shadow-xl: 0 12px 40px rgba(45, 49, 66, 0.12);
+  --shadow-glow: 0 0 20px rgba(74, 111, 165, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --sidebar-width: 300px;
+  --header-height: 60px;
+  --input-height: 60px;
+}
+
+/* ─── Dark Mode ────────────────────────────────────── */
+[data-theme="dark"] {
+  --clr-bg: #131620;
+  --clr-bg-alt: #1A1F2E;
+  --clr-bg-card: #222738;
+  --clr-bg-input: #1E2333;
+  --clr-bg-hover: #2A2F42;
+
+  --clr-text: #E2E4EA;
+  --clr-text-secondary: #A0A4B8;
+  --clr-text-muted: #6B6F85;
+
+  --clr-border: #2E3348;
+  --clr-border-light: #252A3A;
+
+  --clr-crisis-bg: #2A1A1A;
+
+  --clr-sidebar-bg: #0F1219;
+  --clr-sidebar-text: #A0A4B8;
+  --clr-sidebar-hover: #1A1F2E;
+
+  --clr-msg-user: #4A6FA5;
+  --clr-msg-user-text: #FFFFFF;
+  --clr-msg-bot: #222738;
+  --clr-msg-bot-text: #E2E4EA;
+  --clr-msg-bot-border: #2E3348;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 20px rgba(74, 111, 165, 0.2);
+}
+
+/* ─── Base Styles ──────────────────────────────────── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading);
+  line-height: var(--lh-tight);
+}
+
+a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--clr-primary-light);
+}
+
+button {
+  font-family: var(--ff-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea {
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  color: var(--clr-text);
+}
+
+/* ─── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-text-muted);
+}
+
+/* ─── Utility Classes ──────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ─── Animations ───────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 500ms ease forwards;
+}

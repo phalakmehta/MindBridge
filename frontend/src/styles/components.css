@@ -1,0 +1,426 @@
+/* ═══════════════════════════════════════════════════════
+   Component Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Typing Indicator ─────────────────────────────── */
+.typing-indicator {
+  display: flex;
+  gap: var(--space-md);
+  align-self: flex-start;
+  animation: fadeIn 300ms ease;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 5px;
+  padding: 16px 20px;
+  background: var(--clr-msg-bot);
+  border: 1px solid var(--clr-msg-bot-border);
+  border-radius: var(--radius-lg);
+  border-bottom-left-radius: 4px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  opacity: 0.4;
+  animation: gentleBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ─── Crisis Alert Overlay ─────────────────────────── */
+.crisis-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 300ms ease;
+}
+
+.crisis-card {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 400ms ease;
+  border-top: 4px solid var(--clr-crisis);
+}
+
+.crisis-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.crisis-icon {
+  font-size: 32px;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.crisis-title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-text);
+  margin-bottom: var(--space-sm);
+}
+
+.crisis-message {
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+}
+
+.crisis-resources {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.crisis-resource {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 14px 16px;
+  background: var(--clr-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-border-light);
+  transition: all var(--transition-fast);
+}
+
+.crisis-resource:hover {
+  border-color: var(--clr-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.crisis-resource-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.crisis-resource-info {
+  flex: 1;
+}
+
+.crisis-resource-name {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  color: var(--clr-text);
+}
+
+.crisis-resource-number {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--clr-primary);
+  font-family: var(--ff-heading);
+}
+
+.crisis-resource-details {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+}
+
+.crisis-acknowledge-btn {
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--clr-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.crisis-acknowledge-btn:hover {
+  background: var(--clr-primary-dark);
+}
+
+/* ─── Mood Picker ──────────────────────────────────── */
+.mood-picker {
+  animation: fadeInUp 400ms ease;
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border-light);
+  max-width: 400px;
+  margin: var(--space-md) auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.mood-picker-title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text);
+  margin-bottom: var(--space-xs);
+}
+
+.mood-picker-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.mood-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.mood-option {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all var(--transition-spring);
+  border: 2px solid var(--clr-border);
+  color: var(--clr-text-secondary);
+  background: var(--clr-bg);
+  position: relative;
+}
+
+.mood-option:hover {
+  transform: scale(1.1);
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.mood-option.selected {
+  border-color: var(--clr-primary);
+  background: var(--clr-primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(74, 111, 165, 0.3);
+}
+
+.mood-label {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  margin-top: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-xs);
+}
+
+.mood-note-input {
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: 10px 14px;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  background: var(--clr-bg-input);
+  font-size: var(--fs-sm);
+  color: var(--clr-text);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.mood-note-input:focus {
+  border-color: var(--clr-primary);
+}
+
+.mood-submit-btn {
+  margin-top: var(--space-md);
+  padding: 10px 24px;
+  background: var(--clr-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mood-submit-btn:hover {
+  background: var(--clr-primary-dark);
+}
+
+.mood-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Breathing Exercise ───────────────────────────── */
+.breathing-widget {
+  padding: var(--space-md) var(--space-lg);
+}
+
+.breathing-trigger {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(107, 144, 128, 0.1);
+  border: 1px solid rgba(107, 144, 128, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--clr-secondary-light);
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all var(--transition-fast);
+}
+
+.breathing-trigger:hover {
+  background: rgba(107, 144, 128, 0.2);
+}
+
+.breathing-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 300ms ease;
+}
+
+.breathing-container {
+  text-align: center;
+  color: white;
+  animation: fadeInUp 400ms ease;
+}
+
+.breathing-circle-wrapper {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto var(--space-xl);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breathing-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(74, 111, 165, 0.6), rgba(107, 144, 128, 0.6));
+  transition: all 4s ease-in-out;
+  box-shadow: 0 0 40px rgba(74, 111, 165, 0.3);
+}
+
+.breathing-circle.inhale {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 60px rgba(74, 111, 165, 0.5);
+}
+
+.breathing-circle.hold {
+  width: 200px;
+  height: 200px;
+}
+
+.breathing-circle.exhale {
+  width: 140px;
+  height: 140px;
+  transition-duration: 6s;
+}
+
+.breathing-instruction {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-sm);
+}
+
+.breathing-timer {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-heading);
+  opacity: 0.8;
+  margin-bottom: var(--space-xl);
+}
+
+.breathing-close-btn {
+  padding: 10px 28px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.breathing-close-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Mood Sparkline (Sidebar) ─────────────────────── */
+.mood-sparkline {
+  padding: var(--space-sm) 0;
+}
+
+.mood-sparkline canvas {
+  width: 100%;
+  height: 40px;
+}
+
+.mood-sparkline-empty {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-muted);
+  font-style: italic;
+}
+
+/* ─── Voice Waveform ───────────────────────────────── */
+.voice-waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+}
+
+.voice-bar {
+  width: 3px;
+  background: var(--clr-crisis);
+  border-radius: 2px;
+  animation: voiceBar 0.8s ease-in-out infinite alternate;
+}
+
+.voice-bar:nth-child(1) { animation-delay: 0s; height: 8px; }
+.voice-bar:nth-child(2) { animation-delay: 0.1s; height: 16px; }
+.voice-bar:nth-child(3) { animation-delay: 0.2s; height: 12px; }
+.voice-bar:nth-child(4) { animation-delay: 0.3s; height: 20px; }
+.voice-bar:nth-child(5) { animation-delay: 0.15s; height: 10px; }
+
+@keyframes voiceBar {
+  0% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1.2); }
+}
