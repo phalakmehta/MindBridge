@@ -19,7 +19,7 @@ class Settings(BaseSettings):
 
     # Groq
     GROQ_API_KEY: str = ""
-    GROQ_MODEL: str = "llama-3.3-70b-versatile"
+    GROQ_MODEL: str = "llama-3.1-8b-instant"
 
     # ChromaDB
     CHROMA_PERSIST_DIR: str = "./chroma_db"
