@@ -2,7 +2,9 @@
  * API Client with JWT interceptor
  */
 
-const API_BASE = '/api';
+// In production (Vercel): set VITE_API_URL to your Render backend URL
+// In local dev: falls back to '/api' which Vite proxy forwards to localhost:8000
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 function getToken() {
   return localStorage.getItem('mindbridge_token');
