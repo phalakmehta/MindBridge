@@ -17,7 +17,9 @@ passlib[bcrypt]==1.7.4
 groq==0.9.0
 
 # Vector Store & Embeddings
-chromadb==0.4.24
+# Bumping chromadb to 0.5.0 because it has pre-built Windows wheels for hnswlib!
+# This prevents the "Microsoft Visual C++ 14.0 is required" error on your friend's laptop.
+chromadb==0.5.0
 sentence-transformers==2.7.0
 
 # Config & Validation
