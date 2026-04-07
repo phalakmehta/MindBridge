@@ -6,10 +6,14 @@
 # Python
 backend/venv/
 backend/__pycache__/
+backend/**/__pycache__/
 backend/*.pyc
 backend/.pytest_cache/
 
 # Databases & Persistence
+# NOTE: mindbridge.db and chroma_db/ are excluded from git.
+# On Render: use a Persistent Disk mounted at /data (see render.yaml)
+# On friend's machine / fresh clone: run `python -m app.rag.ingest` to regenerate chroma_db
 backend/mindbridge.db
 backend/chroma_db/
 
