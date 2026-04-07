@@ -1,10 +1,13 @@
-FROM python:3.11-slim
+FROM python:3.11-bullseye
 
 WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    llvm-dev \
+    libedit-dev \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
