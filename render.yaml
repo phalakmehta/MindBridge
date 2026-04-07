@@ -10,17 +10,9 @@ services:
     plan: free
     envVars:
       - key: GROQ_API_KEY
-        sync: false          # Set this manually in Render dashboard
+        sync: false
       - key: JWT_SECRET
-        generateValue: true  # Render auto-generates a secure random value
+        generateValue: true
       - key: CORS_ORIGINS
         value: https://your-frontend.vercel.app,http://localhost:5173
-      - key: DATABASE_URL
-        value: sqlite+aiosqlite:////data/mindbridge.db
-      - key: CHROMA_PERSIST_DIR
-        value: /data/chroma_db
-    disk:
-      name: mindbridge-data
-      mountPath: /data
-      sizeGB: 1              # 1GB persistent disk (free tier allows this)
     healthCheckPath: /api/health
