@@ -24,11 +24,8 @@ RUN apt-get purge -y build-essential gcc g++ && apt-get autoremove -y
 # Copy application code
 COPY . .
 
-# Pre-download the embedding model so it's cached in the image
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
-
 # Expose port
 EXPOSE 8000
 
-# Run ingest at container startup then start the server
-CMD ["sh", "-c", "python -m app.rag.ingest && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+# Download model + ingest CBT docs at startup, then start server
+CMD ["sh", "-c", "python -c 'from sentence_transformers import SentenceTransformer; SentenceTransformer(\"all-MiniLM-L6-v2\")' && python -m app.rag.ingest && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
