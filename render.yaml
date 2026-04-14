@@ -14,5 +14,5 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: CORS_ORIGINS
-        value: https://your-frontend.vercel.app,http://localhost:5173
+        value: https://mind-bridge-m889.vercel.app,http://localhost:5173
     healthCheckPath: /api/health
