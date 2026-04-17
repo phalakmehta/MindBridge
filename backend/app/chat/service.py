@@ -96,9 +96,13 @@ async def process_message(
     technique_used = rag_chunks[0]["technique"] if rag_chunks else None
 
     # ── 5. Build LLM Context ────────────────────────────
+    # Always include the user's name so the LLM doesn't hallucinate one
+    user_context_parts = [
+        f"## Patient Information\nThe person you are talking to is named {user.name}. Use their name naturally."
+    ]
+
     # Long-term memory
     long_term = await get_long_term_memory(db, user.id)
-    user_context_parts = []
 
     if long_term:
         user_context_parts.append(

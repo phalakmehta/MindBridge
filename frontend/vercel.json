@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://mindbridge-aw6k.onrender.com/api/:path*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

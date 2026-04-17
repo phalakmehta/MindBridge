@@ -2,9 +2,11 @@
  * API Client with JWT interceptor
  */
 
-// In production (Vercel): set VITE_API_URL to your Render backend URL
+// In production (Vercel): use the Render backend URL directly to bypass Vercel's 10s proxy timeout.
 // In local dev: falls back to '/api' which Vite proxy forwards to localhost:8000
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.PROD 
+  ? 'https://mindbridge-aw6k.onrender.com/api' 
+  : (import.meta.env.VITE_API_URL || '/api');
 
 function getToken() {
   return localStorage.getItem('mindbridge_token');

@@ -40,7 +40,7 @@ class Settings(BaseSettings):
     LONG_TERM_SUMMARY_INTERVAL: int = 5  # summarize every N messages
 
     # CORS — comma-separated list of allowed origins
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://mind-bridge-m889.vercel.app"
 
     model_config = {"env_file": ".env", "extra": "ignore"}
 
