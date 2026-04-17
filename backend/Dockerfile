@@ -28,4 +28,4 @@ COPY . .
 EXPOSE 8000
 
 # Download model + ingest CBT docs at startup, then start server
-CMD ["sh", "-c", "python -c 'from sentence_transformers import SentenceTransformer; SentenceTransformer(\"all-MiniLM-L6-v2\")' && python -m app.rag.ingest && uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+CMD ["sh", "-c", "python -c 'from sentence_transformers import SentenceTransformer; SentenceTransformer(\"all-MiniLM-L6-v2\")' && python -m app.rag.ingest && uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
